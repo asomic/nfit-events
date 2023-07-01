@@ -42,7 +42,7 @@ class EventController extends Controller
         $country = \App\Models\Misc\Country::getCountryBycode($request->get('country'));
 
         // Send email with the information of the contact form
-        Mail::to('lab@asomic.com')->send(new \App\Mail\EventForm($request, $country));
+        Mail::to('lab@asomic.com')->send(new \App\Mail\EventForm($request->all(), $country));
 
         // send slack notification
         // $message = 'Nuevo contacto desde evento ' . $request->event . ': ' . $request->name . ' - ' . $request->email;

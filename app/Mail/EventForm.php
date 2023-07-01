@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
+
 class EventForm extends Mailable
 {
     use Queueable, SerializesModels;
@@ -26,9 +27,9 @@ class EventForm extends Mailable
      *
      * @return void
      */
-    public function __construct(Request $request, $country)
+    public function __construct($data, $country)
     {
-        $this->request = $request;
+        $this->request = $data;
         $this->country = $country;
     }
 
