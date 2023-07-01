@@ -41,7 +41,7 @@ class EventForm extends Mailable
     public function build()
     {
         return $this->from('contacto@nfit.app')
-                    ->view('web.emails.contact')
+                    ->view('emails.event')
                     ->with([
                         'event' => $this->request['event'],
                         'name' => $this->request['name'],
