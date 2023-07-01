@@ -43,14 +43,16 @@ class EventForm extends Mailable
         return $this->from('contacto@nfit.app')
                     ->view('web.emails.contact')
                     ->with([
-                        'event' => $this->request->event,
-                        'name' => $this->request->name,
-                        'email' => $this->request->email,
-                        'box_center_name' => $this->request->box_center_name,
-                        'city' => $this->request->city,
-                        'students' => $this->request->students,
-                        'phone' => $this->request->phone,
-                        'country' => $this->country,
+                        'event' => $this->request['event'],
+                        'name' => $this->request['name'],
+                        'email' => $this->request['email'],
+                        'phone' => $this->request['phone'],
+                        'box_center_name' => $this->request['box_center_name'],
+                        'country' => $this->country['name'],
+                        'city' => $this->request['city'],
+                        'students' => $this->request['students']
+
+  
                     ]);
     }
 }
