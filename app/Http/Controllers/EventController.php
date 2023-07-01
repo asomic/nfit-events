@@ -48,7 +48,7 @@ class EventController extends Controller
         // $message = 'Nuevo contacto desde evento ' . $request->event . ': ' . $request->name . ' - ' . $request->email;
         // Log::channel('web-contact-form')->info($message);
 
-        return redirect()->route('web.events.landing', ['event' => $request->event])
+        return redirect()->route('events.landing', ['event' => $request->event])
                 ->with('success', 'Gracias por tu interés, nos pondremos en contacto contigo a la brevedad.');
     }
 }
