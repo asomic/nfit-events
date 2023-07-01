@@ -39,10 +39,10 @@ class EventController extends Controller
             'prefix.required' => 'El prefijo es requerido',
         ]);
 
-        $country = \App\Models\System\Misc\Country::getCountryBycode($request->get('country'));
+        $country = \App\Models\Misc\Country::getCountryBycode($request->get('country'));
 
         // Send email with the information of the contact form
-        Mail::to('lab@asomic.com')->send(new \App\Mail\System\Clients\EventForm($request, $country));
+        Mail::to('lab@asomic.com')->send(new \App\Mail\EventForm($request, $country));
 
         // send slack notification
         // $message = 'Nuevo contacto desde evento ' . $request->event . ': ' . $request->name . ' - ' . $request->email;
